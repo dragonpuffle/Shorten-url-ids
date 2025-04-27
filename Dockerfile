@@ -1,7 +1,9 @@
-FROM python:3.11-slim
+FROM python:3.11.11-alpine3.21
 
-COPY . .
+WORKDIR /app
 
-RUN pip install -r requirements.txt
+COPY . /app
 
-CMD ["uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8080"]
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
