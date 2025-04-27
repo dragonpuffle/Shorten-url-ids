@@ -1,5 +1,4 @@
-app/admin.py
-
+venv
 .idea/
-
+app/admin.py
 *.db

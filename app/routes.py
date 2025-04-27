@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.post('/', status_code=201, response_model=ShortUrlsSchema)
 async def shorten_url_route(full_url: UrlsSchema, session: SessionDep):
-    result = await shorten_url(full_url, session)
+    result = await shorten_url(str(full_url.url), session)
     return result
 
 
